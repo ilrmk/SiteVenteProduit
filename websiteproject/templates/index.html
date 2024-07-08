@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Python Project</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blueberry.css') }}">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+
+
+<script src="{{ url_for('static', filename='js/jquery.blueberry.js') }}"></script>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script><script src="js/Googlecharts.js"></script>
+
+
+
+
+<script>
+$(window).load(function(){
+	$('.blueberry').blueberry();
+});
+</script>
+
+<script language="JavaScript">
+<!--
+function autoResize(id){
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newheight = document.getElementById(id).contentWindow.document .body.scrollHeight;
+        newwidth = document.getElementById(id).contentWindow.document .body.scrollWidth;
+    }
+
+    document.getElementById(id).height = (newheight) + "px";
+    document.getElementById(id).width = (newwidth) + "px";
+}
+
+//-->
+</script>
+
+
+
+
+</head>
+<body>
+	<header>
+		<!-- This will be where the logo of the company and the main navigation bar -->
+		<a href="index.html" id="logo"/><img src="../static/img/log.png"></a>
+		<nav>
+			
+			<a href="../static/img/icon.png" id="menu-icon"></a>
+			<ul>
+				<li><a href="index.html" class="current">Home</a></li>
+				<li><a href="aboutme.html">About Us</a></li>
+			</ul> 
+		</nav>
+	</header>
+	<div id="doc">
+		<div id="content">
+
+			
+			<form id="searchForm" action="/chercher" method="post" enctype="multipart/form-data">
+				<input type="text" id="searchInput" name="searchInput" placeholder="Saisissez le texte à rechercher...">
+				<div class="button-container">
+					
+					<label for="chooseImageButton" class="file-upload-label">
+						<div class="camera-button">
+							<div class="icon-square">
+								<img src="../static/img/camera.png" alt="Camera Icon">
+							</div>
+						</div>
+					</label>
+			
+					<span id="selectedFileName" ></span>
+					<!-- Bouton pour soumettre le formulaire -->
+					<button type="submit" class="search-icon-button" aria-label="Rechercher">
+						<div class="icon-square">
+							<img src="../static/img/rechercher.png" alt="Search Icon">
+						</div>
+					</button>
+				</div>
+				<input type="file" id="chooseImageButton" name="chooseImageButton" style="display: none" accept=".jpg, .jpeg, .png"  onchange="updateFileName()">
+				
+
+			</form>
+			
+			
+
+			 
+			  
+			<div class="blueberry">
+				<ul class="slides">
+					<li><img src="../static/img/promotion/p6.png" /></li>
+					<li><img src="../static/img/promotion/p2.webp" /></li>
+					<li><img src="../static/img/promotion/p7.webp" /></li>
+					<li><img src="../static/img/promotion/p8.jpg" /></li>
+				</ul>
+			</div>
+
+			
+				{% block body %}
+						{{ products_html | safe }}
+				{% endblock %}
+				
+			
+		</div>
+		
+	
+		
+  
+	<footer>
+		<section>
+			<h4><b>ILyat Ramkaddam</b></h4>
+			<p><b>Cell: 0678964611</b><br><br>
+				<b>exemple@gmail.com</b></p>
+		</section>
+
+		<section>
+			<a href="/" tabIndex="0"><img class="bn45" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="bn45"/></a>
+			<a href="/" tabIndex="0"><img class="bn46" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"alt="bn45"/></a>
+		</section>
+		
+		<section>
+			<h4><b>Github</b></h4>
+			<p><b><a href="#">Click here to check out my Github Web Project link.</a></b><br><br></p>
+		</section>
+
+	</footer>
+
+	<footer class="second">
+		<p>&copy; 2023 Python Project, ecommerce app</p>
+	</footer>
+
+
+
+<script>
+
+function updateFileName() {
+        var fileInput = document.getElementById('chooseImageButton');
+        var fileNameSpan = document.getElementById('selectedFileName');
+        var fileLabel = document.getElementById('labelfile');
+         //the bs class can be used to get its properties
+
+    
+        if (fileInput.files.length > 0) {
+            fileNameSpan.textContent = fileInput.files[0].name;
+            
+            fileNameSpan.style.marginLeft = '10px';     } 
+    }
+	
+</script>	
+	
+
+</body>
+</html>
